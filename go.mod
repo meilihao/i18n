@@ -1,4 +1,4 @@
-module github.com/unknwon/i18n
+module github.com/meilihao/i18n
 
 go 1.12
 
