@@ -234,3 +234,20 @@ func Tr(lang, format string, args ...interface{}) string {
 	}
 	return format
 }
+
+// TrKey get translate key to target language.
+func TrKey(lang, format string) string {
+	var section string
+
+	idx := strings.IndexByte(format, '.')
+	if idx > 0 {
+		section = format[:idx]
+		format = format[idx+1:]
+	}
+
+	value, ok := locales.Get(lang, section, format)
+	if ok {
+		format = value
+	}
+	return format
+}
